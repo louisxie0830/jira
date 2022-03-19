@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 
-const ProjectPage: NextPage = () => {
+const Project: NextPage = () => {
   return (
     <>
       <p>ProjectPage</p>
@@ -8,4 +8,4 @@ const ProjectPage: NextPage = () => {
   );
 };
 
-export default ProjectPage;
+export default Project;

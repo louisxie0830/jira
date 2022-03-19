@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { color, font, mixin } from '@/lib/styles.ts';
+import { color, font, mixin } from '@/lib/styles';
 
 export const BaseStyles = createGlobalStyle`
   html, body, #root {

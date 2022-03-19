@@ -1,0 +1,16 @@
+upstream nextjs_web {
+     server Nextjs;
+}
+
+map $http_x_service $services {
+     default "nextjs_web";
+}
+
+server {
+    listen 80;
+    
+    location / {
+        proxy_pass_request_headers      on;
+        proxy_pass http://$services;
+    }
+}
