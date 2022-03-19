@@ -5,7 +5,16 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/project',
+        permanent: true
+      }
+    ]
+  },
   rewrites: () => [
-    { source: "/api/:path*", destination: "http://localhost/:path*" },
-  ],
+    { source: "/api/:path*", destination: "http://localhost/:path*" }
+  ]
 });

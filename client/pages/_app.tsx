@@ -1,8 +1,14 @@
-import '../styles/globals.scss'
-import type { AppProps } from 'next/app'
+import type { AppProps } from "next/app";
+// import '@/styles/globals.scss';
+import { NormalizeStyles } from "@/lib/component/NormalizeStyles";
+import { BaseStyles } from "@/lib/component/BaseStyles";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
-}
+const App = ({ Component, pageProps }: AppProps) => (
+  <>
+    <NormalizeStyles />
+    <BaseStyles/>
+    <Component {...pageProps} />
+  </>
+);
 
-export default MyApp
+export default App;

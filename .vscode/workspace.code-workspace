@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "path": ".."
+    },
+    {
+      "path": "../app"
+    }
+  ],
+  "settings": {},
+  "extensions": {
+    "recommendations": [
+      "coenraads.bracket-pair-colorizer-2",
+      "ms-azuretools.vscode-docker",
+      "editorconfig.editorconfig",
+      "foxundermoon.shell-format"
+    ]
+  }
+}
