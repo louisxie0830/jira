@@ -8,7 +8,7 @@ services:
     #   DOMAIN: Gin
   db:
     container_name: Mysql
-    image: mysql/mysql-server:5.7
+    image: mysql/mysql-server
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
