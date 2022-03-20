@@ -8,16 +8,14 @@ services:
     #   DOMAIN: Gin
   db:
     container_name: Mysql
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
+    image: mysql/mysql-server:5.7
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: ${MYSQL_DB}
     ports:
       - 3306:3306
     volumes:
-      - "${MYSQL_DATA}:/var/lib/mysql"
+      - "${MYSQL_MIGRATION_FILES_PATH}:docker-entrypoint-initdb.d"
   proxy:
     container_name: Nginx
     image: nginx:1.21-alpine
