@@ -1,11 +1,10 @@
-import type { AppProps } from "next/app";
-// import '@/styles/globals.scss';
-import { NormalizeStyles } from "@/lib/component/NormalizeStyles";
-import { BaseStyles } from "@/lib/component/BaseStyles";
 import Head from "next/head";
+import { Fragment } from "react";
+import { NormalizeStyles } from '../lib/component/NormalizeStyles';
+import { BaseStyles } from '../lib/component/BaseStyles';
 
-const App = ({ Component, pageProps }: AppProps) => (
-  <div>
+const App = ({ Component, pageProps }) => (
+  <Fragment>
     <Head>
       <meta
         name="viewport"
@@ -20,8 +19,9 @@ const App = ({ Component, pageProps }: AppProps) => (
     </Head>
     <NormalizeStyles />
     <BaseStyles/>
+    {/* <Toast /> */}
     <Component {...pageProps} />
-  </div>
+  </Fragment>
 );
 
 export default App;
