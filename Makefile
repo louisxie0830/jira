@@ -5,6 +5,8 @@ endif
 
 setEnv:
 	cp .env.example .env
+setDbPath:
+	mkdir ./db/data
 build:
 	docker build -t ${SERVER_IMAGE}:${SERVER_IMAGE_VERSION} .
 buildClient:
