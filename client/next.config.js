@@ -18,7 +18,7 @@ module.exports = withBundleAnalyzer({
   rewrites: () => [
     { source: "/api/:path*", destination: "http://localhost/:path*" }
   ],
-  swcMinify: true,
+  swcMinify: false,
   compiler: {
     styledComponents: true
   }

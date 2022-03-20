@@ -4,5 +4,5 @@
     "baseUrl": "./",
     "jsx": "react"
   },
-  "include": ["src/**/*"]
+  "include": ["./**/*"]
 }

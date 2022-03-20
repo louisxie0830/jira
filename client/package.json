@@ -29,7 +29,10 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-do-expressions": "^7.16.7",
+    "@babel/preset-env": "^7.16.11",
     "@next/bundle-analyzer": "^12.1.0",
+    "@swc/cli": "^0.1.55",
+    "@swc/core": "^1.2.159",
     "babel-plugin-styled-components": "^2.0.6",
     "babel-preset-next": "^1.4.0",
     "eslint": "8.11.0",
