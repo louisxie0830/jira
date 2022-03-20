@@ -30,6 +30,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-do-expressions": "^7.16.7",
     "@next/bundle-analyzer": "^12.1.0",
+    "babel-plugin-styled-components": "^2.0.6",
     "babel-preset-next": "^1.4.0",
     "eslint": "8.11.0",
     "eslint-config-next": "12.1.0"

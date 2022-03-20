@@ -2,6 +2,7 @@ import Head from "next/head";
 import { Fragment } from "react";
 import { NormalizeStyles } from '../lib/component/NormalizeStyles';
 import { BaseStyles } from '../lib/component/BaseStyles';
+import { Toast } from '../lib/component/Toast';
 
 const App = ({ Component, pageProps }) => (
   <Fragment>
@@ -19,7 +20,7 @@ const App = ({ Component, pageProps }) => (
     </Head>
     <NormalizeStyles />
     <BaseStyles/>
-    {/* <Toast /> */}
+    <Toast />
     <Component {...pageProps} />
   </Fragment>
 );

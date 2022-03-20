@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { color, font, mixin, zIndexValues } from '@/lib/styles';
-import { Icon } from '@/lib/component/Icon';
+import { color, font, mixin, zIndexValues } from '../../styles/globalStyles';
+import { Icon } from '../Icon';
 
 export const Container = styled.div`
   z-index: ${zIndexValues.modal + 1};
@@ -44,6 +44,7 @@ export const CloseIcon = styled(Icon)`
   cursor: pointer;
   color: #fff;
 `;
+
 
 export const Title = styled.div`
   padding-right: 22px;

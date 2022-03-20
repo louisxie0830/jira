@@ -1,6 +1,5 @@
-import type { NextPage } from 'next';
 
-const Project: NextPage = () => {
+const Project = () => {
   return (
     <>
       <p>ProjectPage</p>

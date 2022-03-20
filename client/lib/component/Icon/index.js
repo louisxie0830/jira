@@ -1,8 +1,10 @@
-import React, { FC } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import { StyledIcon } from './Styles';
 
-const fontIconCodes = Object.freeze({
+
+const fontIconCodes = {
   [`bug`]: '\\e90f',
   [`stopwatch`]: '\\e914',
   [`task`]: '\\e910',
@@ -35,23 +37,30 @@ const fontIconCodes = Object.freeze({
   [`calendar`]: '\\e91d',
   [`arrow-left`]: '\\e91e',
   [`arrow-right`]: '\\e91f',
-});
+};
 
-// const defaultProps = {
-//   className: undefined,
-//   size: 16,
-//   left: 0,
-//   top: 0,
-// };
+const propTypes = {
+  className: PropTypes.string,
+  type: PropTypes.oneOf(Object.keys(fontIconCodes)).isRequired,
+  size: PropTypes.number,
+  left: PropTypes.number,
+  top: PropTypes.number,
+};
 
-export const Icon: FC<{ type: any; iconProps: any }> = ({
-  type,
-  ...iconProps
-}) => (
-  <div></div>
-  // <StyledIcon
-  //   {...iconProps}
-  //   data-testid={`icon:${type}`}
-  //   code={fontIconCodes[type]}
-  // />
-);
+const defaultProps = {
+  className: undefined,
+  size: 16,
+  left: 0,
+  top: 0,
+};
+
+export const Icon = ({ type, ...iconProps }) => {
+  console.log('type: ', type);
+  return (
+    
+    <StyledIcon {...iconProps} data-testid={`icon:${type}`} code={fontIconCodes[type]} />
+  )
+};
+
+Icon.propTypes = propTypes;
+Icon.defaultProps = defaultProps;
