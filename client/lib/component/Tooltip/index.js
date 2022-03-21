@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef, useLayoutEffect } from 'react';
+import React, { Fragment, useState, useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
@@ -39,10 +39,10 @@ export const Tooltip = ({ className, placement, offset, width, renderLink, rende
   const closeTooltip = () => setIsOpen(false);
 
   useOnOutsideClick([$tooltipRef, $linkRef], isOpen, closeTooltip);
-  useLayoutEffect(() => {
+  useEffect(() => {
     $root = document.getElementById('__next');
   }, []);
-  useLayoutEffect(() => {
+  useEffect(() => {
     const setTooltipPosition = () => {
       const { top, left } = calcPosition(offset, placement, $tooltipRef, $linkRef);
       $tooltipRef.current.style.top = `${top}px`;
