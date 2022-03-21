@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from '../Icon'
 import Link from 'next/link'
 
-// import { Icon, AboutTooltip } from 'shared/components';
-
+import { AboutTooltip } from '../AboutTooltip';
+import { Icon } from '../Icon'
 import { NavLeft, LogoLink, StyledLogo, Bottom, Item, ItemText } from './Styles';
 
 const propTypes = {
@@ -32,7 +31,7 @@ export const NavbarLeft = ({ issueSearchModalOpen, issueCreateModalOpen }) => (
     </Item>
 
     <Bottom>
-      {/* <AboutTooltip
+      <AboutTooltip
         placement="right"
         offset={{ top: -218 }}
         renderLink={linkProps => (
@@ -41,7 +40,7 @@ export const NavbarLeft = ({ issueSearchModalOpen, issueCreateModalOpen }) => (
             <ItemText>About</ItemText>
           </Item>
         )}
-      /> */}
+      />
     </Bottom>
   </NavLeft>
 );
