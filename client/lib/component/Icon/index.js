@@ -54,13 +54,7 @@ const defaultProps = {
   top: 0,
 };
 
-export const Icon = ({ type, ...iconProps }) => {
-  console.log('type: ', type);
-  return (
-    
-    <StyledIcon {...iconProps} data-testid={`icon:${type}`} code={fontIconCodes[type]} />
-  )
-};
+export const Icon = ({ type, ...iconProps }) => (<StyledIcon {...iconProps} data-testid={`icon:${type}`} code={fontIconCodes[type]} />);
 
 Icon.propTypes = propTypes;
 Icon.defaultProps = defaultProps;

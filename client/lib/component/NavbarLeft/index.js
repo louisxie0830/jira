@@ -14,7 +14,7 @@ const propTypes = {
 
 export const NavbarLeft = ({ issueSearchModalOpen, issueCreateModalOpen }) => (
   <NavLeft>
-    <Link href="/">
+    <Link href="/project" replace>
       <LogoLink>
         <StyledLogo color="#fff" />
       </LogoLink>
@@ -31,7 +31,7 @@ export const NavbarLeft = ({ issueSearchModalOpen, issueCreateModalOpen }) => (
       <ItemText>Create Issue</ItemText>
     </Item>
 
-    {/* <Bottom> */}
+    <Bottom>
       {/* <AboutTooltip
         placement="right"
         offset={{ top: -218 }}
@@ -42,7 +42,7 @@ export const NavbarLeft = ({ issueSearchModalOpen, issueCreateModalOpen }) => (
           </Item>
         )}
       /> */}
-    {/* </Bottom> */}
+    </Bottom>
   </NavLeft>
 );
 

@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import { NormalizeStyles } from '../lib/component/NormalizeStyles';
 import { BaseStyles } from '../lib/component/BaseStyles';
 import { Toast } from '../lib/component/Toast';
+import '../styles/fontStyles.css';
 
 const App = ({ Component, pageProps }) => (
   <Fragment>

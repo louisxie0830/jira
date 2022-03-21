@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { sizes } from '../lib/styles/globalStyles';
 import { NavbarLeft } from '../lib/component/NavbarLeft';
+import { createQueryParamModalHelpers } from '../lib/utils/queryParamModal';
 
 const paddingLeft = sizes.appNavBarLeftWidth + sizes.secondarySideBarWidth + 40;
 
@@ -16,11 +17,15 @@ export const ProjectPage = styled.div`
 `;
 
 const Project = () => {
+  const issueSearchModalHelpers = createQueryParamModalHelpers('issue-search');
+  const issueCreateModalHelpers = createQueryParamModalHelpers('issue-create');
+  
   return (
     <ProjectPage>
       <NavbarLeft
+        issueSearchModalOpen={issueSearchModalHelpers.open}
+        issueCreateModalOpen={issueCreateModalHelpers.open}
       />
-      <p>ProjectPage</p>
     </ProjectPage>
   );
 };
