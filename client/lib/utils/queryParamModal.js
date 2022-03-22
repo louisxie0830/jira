@@ -3,17 +3,17 @@ import { queryStringToObject, addToQueryString, omitFromQueryString } from './ur
 
 const open = param =>
   Router.push({
-    pathname: window.location.pathname,
-    search: addToQueryString(window.location.search, { [`modal-${param}`]: true }),
+    pathname: location.pathname,
+    search: addToQueryString(location.search, { [`modal-${param}`]: true }),
   });
 
 const close = param =>
   Router.push({
-    pathname: window.location.pathname,
-    search: omitFromQueryString(window.location.search, [`modal-${param}`]),
+    pathname: location.pathname,
+    search: omitFromQueryString(location.search, [`modal-${param}`]),
   });
 
-const isOpen = param => !!queryStringToObject(window.location.search)[`modal-${param}`];
+const isOpen = param => !!queryStringToObject(location.search)[`modal-${param}`];
 
 export const createQueryParamModalHelpers = param => ({
   open: () => open(param),
