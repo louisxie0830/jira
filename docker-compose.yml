@@ -4,18 +4,28 @@ services:
     container_name: Nextjs
     image: "${WEB_IMAGE}:${WEB_IMAGE_VERSION}"
     restart: always
-    # environment:
-    #   DOMAIN: Gin
-  # db:
-  #   container_name: Mysql
-  #   image: mysql/mysql-server
-  #   restart: always
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: root
-  #   ports:
-  #     - 3306:3306
-  #   volumes:
-  #     - "${MYSQL_MIGRATION_FILES_PATH}:docker-entrypoint-initdb.d"
+    environment:
+      DOMAIN: api
+  db:
+    container_name: db
+    image: mysql/mysql-server
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DB}"
+      MYSQL_USER: "${MYSQL_USER}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_ROOT_HOST: "${MYSQL_ROOT_HOST}"
+    ports:
+      - ${MYSQL_PORT}:3306
+    volumes:
+      - "${MYSQL_MIGRATION_FILES_PATH}:/docker-entrypoint-initdb.d"
+  server:
+    container_name: api
+    image: "${SERVER_IMAGE}:${SERVER_IMAGE_VERSION}"
+    restart: always
+    depends_on:
+      - db
   proxy:
     container_name: Nginx
     image: nginx:1.21-alpine
@@ -28,4 +38,5 @@ services:
       - "./nginx/nginx.conf.template:/etc/nginx/templates/default.conf.template"
     depends_on:
       - web
+      - server
   

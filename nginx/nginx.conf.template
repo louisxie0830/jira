@@ -1,9 +1,14 @@
+upstream api_server {
+     server api;
+}
+
 upstream nextjs_web {
      server Nextjs;
 }
 
 map $http_x_service $services {
      default "nextjs_web";
+     api_server "api_server";
 }
 
 server {
