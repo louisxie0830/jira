@@ -10,8 +10,8 @@ FROM openjdk:8-jdk-alpine AS runner
 WORKDIR /app
 RUN addgroup -S spring && adduser -S spring -G spring
 
-COPY --from=builder /app/target ./target
+COPY --from=builder /app/target/api.jar .
 USER spring:spring
-ARG JAR_FILE=target/*.jar
 
-ENTRYPOINT ["java","-jar","/app.jar"]
+
+ENTRYPOINT ["java","-jar","./api.jar"]
