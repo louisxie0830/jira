@@ -1,11 +1,11 @@
 version: "3.9"
 services:
-  web:
-    container_name: Nextjs
-    image: "${WEB_IMAGE}:${WEB_IMAGE_VERSION}"
-    restart: always
-    environment:
-      DOMAIN: api
+  # web:
+  #   container_name: Nextjs
+  #   image: "${WEB_IMAGE}:${WEB_IMAGE_VERSION}"
+  #   restart: always
+  #   environment:
+  #     DOMAIN: api
   db:
     container_name: db
     image: mysql/mysql-server
@@ -37,6 +37,6 @@ services:
     volumes:
       - "./nginx/nginx.conf.template:/etc/nginx/templates/default.conf.template"
     depends_on:
-      - web
+      # - web
       - server
   

@@ -14,4 +14,4 @@ COPY --from=builder /app/target/api.jar .
 USER spring:spring
 
 
-ENTRYPOINT ["java","-Dserver.port=80","-jar","./api.jar"]
+ENTRYPOINT ["java","-jar","./api.jar"]
