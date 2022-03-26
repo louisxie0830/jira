@@ -22,7 +22,7 @@ services:
     volumes:
       - "./migrations:/docker-entrypoint-initdb.d"
   server:
-    container_name: jira
+    container_name: api
     image: "${SERVER_IMAGE}:${SERVER_IMAGE_VERSION}"
     restart: always
     depends_on:
