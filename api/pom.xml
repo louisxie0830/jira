@@ -78,6 +78,23 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<!-- 排除全部的application設定檔-->		        
+				<excludes>
+				    <exclude>application-*.properties</exclude>
+				</excludes>		             	
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<!-- 複製maven參數定義的環境變數設定檔加入打包檔-->
+				<filtering>true</filtering>
+				<includes>
+				    <include>application-${profile.active}.properties</include>
+				</includes>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
