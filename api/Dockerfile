@@ -3,7 +3,7 @@ WORKDIR /app
 COPY . .
 RUN rm -rf target
 RUN chmod -R 777 ./
-RUN mvn clean compile package
+RUN mvn clean compile package -Pprod
 
 
 FROM openjdk:8-jdk-alpine AS runner

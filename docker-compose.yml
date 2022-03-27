@@ -1,11 +1,11 @@
 version: "3.9"
 services:
-  # web:
-  #   container_name: Nextjs
-  #   image: "${WEB_IMAGE}:${WEB_IMAGE_VERSION}"
-  #   restart: always
-  #   environment:
-  #     DOMAIN: api
+  web:
+    container_name: Nextjs
+    image: "${WEB_IMAGE}:${WEB_IMAGE_VERSION}"
+    restart: always
+    environment:
+      DOMAIN: jira
   db:
     container_name: db
     image: mysql/mysql-server
@@ -22,7 +22,7 @@ services:
     volumes:
       - "./migrations:/docker-entrypoint-initdb.d"
   server:
-    container_name: api
+    container_name: jira
     image: "${SERVER_IMAGE}:${SERVER_IMAGE_VERSION}"
     restart: always
     depends_on:
@@ -38,6 +38,6 @@ services:
     volumes:
       - "./nginx/nginx.conf.template:/etc/nginx/templates/default.conf.template"
     depends_on:
-      # - web
+      - web
       - server
   

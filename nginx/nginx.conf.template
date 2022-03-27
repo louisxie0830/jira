@@ -1,10 +1,15 @@
 upstream api_server {
-     server api;
+     server jira;
+}
+
+upstream nextjs_web {
+     server Nextjs;
 }
 
 
 map $http_x_service $services {
-     default "api_server";
+     default "nextjs_web";
+     api_server "api_server";
 }
 
 server {
