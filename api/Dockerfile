@@ -9,6 +9,7 @@ RUN mvn clean install -DskipTests -Pprod
 FROM openjdk:8-jdk-alpine AS runner
 WORKDIR /app
 RUN addgroup -S spring && adduser -S spring -G spring
+RUN apk --no-cache add tzdata
 
 COPY --from=builder /app/target/api.jar .
 RUN sh -c 'touch api.jar'
