@@ -1,4 +1,4 @@
-FROM maven as builder
+FROM maven:3-openjdk-8 as builder
 WORKDIR /app
 COPY . .
 RUN rm -rf target
@@ -14,6 +14,6 @@ COPY --from=builder /app/target/api.jar .
 RUN sh -c 'touch api.jar'
 USER spring:spring
 
-ENTRYPOINT ["java","-jar","./api.jar"]
+ENTRYPOINT ["java","-jar","api.jar"]
 
 EXPOSE 80
