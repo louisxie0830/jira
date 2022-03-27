@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  server:
+    container_name: jira
+    image: jira/api:latest
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - 80:80
+  db:
+    container_name: db
+    image: mysql/mysql-server
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: jira_db
+      MYSQL_USER: test
+      MYSQL_PASSWORD: test_pass
+      MYSQL_ROOT_HOST: '%'  # needs to be enclosed with quotes
+    ports:
+      - 3306:3306
+    volumes:
+      - "../db/migrations:/docker-entrypoint-initdb.d"
