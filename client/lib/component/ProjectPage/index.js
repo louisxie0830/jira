@@ -3,7 +3,9 @@ import React, { useEffect } from 'react';
 import { sizes } from '../../styles/globalStyles';
 import { NavbarLeft } from '../NavbarLeft';
 import { Modal } from '../Modal'
+import Sidebar from '../Sidebar'
 import { createQueryParamModalHelpers } from '../../utils/queryParamModal';
+import { project } from '../../../api/mock';
 
 const paddingLeft = sizes.appNavBarLeftWidth + sizes.secondarySideBarWidth + 40;
 
@@ -28,6 +30,8 @@ const Project = () => {
         issueSearchModalOpen={issueSearchModalHelpers.open}
         issueCreateModalOpen={issueCreateModalHelpers.open}
       />
+      
+      <Sidebar project={project.project} />
       {/* {issueSearchModalHelpers.isOpen() && (
         <Modal
           isOpen
