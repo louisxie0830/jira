@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { font, sizes, color, mixin, zIndexValues } from '../../styles/globalStyles';
 import { Logo } from '../Logo';
+import { NavLink } from '../NavLink' 
 
 export const NavLeft = styled.aside`
   z-index: ${zIndexValues.navLeft};
@@ -19,7 +20,7 @@ export const NavLeft = styled.aside`
   }
 `;
 
-export const LogoLink = styled.div`
+export const LogoLink = styled(NavLink)`
   display: block;
   position: relative;
   left: 0;

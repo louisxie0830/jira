@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link'
+
 
 import { AboutTooltip } from '../AboutTooltip';
 import { Icon } from '../Icon'
@@ -13,11 +13,9 @@ const propTypes = {
 
 export const NavbarLeft = ({ issueSearchModalOpen, issueCreateModalOpen }) => (
   <NavLeft>
-    <Link href="/project" replace>
-      <LogoLink>
+      <LogoLink {...{href: '/project'}}>
         <StyledLogo color="#fff" />
       </LogoLink>
-    </Link>
     
 
     <Item onClick={issueSearchModalOpen}>

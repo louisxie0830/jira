@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
-import Link from 'next/link'
+import { NavLink } from '../NavLink';
 import { useRouter } from 'next/router'
 
 import { Icon } from '../Icon'
@@ -51,7 +50,7 @@ const renderLinkItem = (match, text, iconType, path) => {
   const isImplemented = !!path;
 
   const linkItemProps = isImplemented
-    ? { as: 'a', exact: true, href: `${match.pathname}${path}` }
+    ? { as: NavLink, exact: true, href: `${match.pathname}${path}` }
     : { as: 'div' };
 
   return (
