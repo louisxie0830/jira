@@ -1,8 +1,10 @@
 import styled from 'styled-components';
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Route, Redirect, useRouteMatch, useHistory } from 'react-router-dom';
 import { sizes } from '../../styles/globalStyles';
 import { NavbarLeft } from '../NavbarLeft';
 import { Modal } from '../Modal'
+// import { IssueSearch } from '../IssueSearch'
 import Sidebar from '../Sidebar'
 import { createQueryParamModalHelpers } from '../../utils/queryParamModal';
 import { project } from '../../../api/mock';
@@ -32,6 +34,7 @@ const Project = () => {
       />
       
       <Sidebar project={project.project} />
+      
       {/* {issueSearchModalHelpers.isOpen() && (
         <Modal
           isOpen
@@ -39,18 +42,20 @@ const Project = () => {
           variant="aside"
           width={600}
           onClose={issueSearchModalHelpers.close}
-        />
-      )}
-
-      {issueCreateModalHelpers.isOpen() && (
-        <Modal
-          isOpen
-          testid="modal:issue-create"
-          width={800}
-          withCloseIcon={false}
-          onClose={issueCreateModalHelpers.close}
+          renderContent={() => <IssueSearch project={project} />}
         />
       )} */}
+      
+      <Route
+        path={`${match.path}/board`}
+        render={() => (
+          <Board
+            project={project}
+            fetchProject={fetchProject}
+            updateLocalProjectIssues={updateLocalProjectIssues}
+          />
+        )}
+      />
     </ProjectPage>
   );
 };
