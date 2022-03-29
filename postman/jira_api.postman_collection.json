@@ -6,7 +6,18 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8080/jira/login",
+			"name": "登入",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"postman.setGlobalVariable(\"bearerToken\",postman.getResponseHeader(\"Authorization\").split(' ')[2] );"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
 					"type": "bearer"
@@ -23,12 +34,12 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/jira/login",
+					"raw": "http://localhost:{{jiraLocalPort}}/jira/login",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "{{jiraLocalPort}}",
 					"path": [
 						"jira",
 						"login"
@@ -38,14 +49,14 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/jira/user/getOne",
+			"name": "getOne測試",
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "jwtToken",
+							"value": "{{bearerToken}}",
 							"type": "string"
 						}
 					]
@@ -53,12 +64,12 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/jira/user/getOne",
+					"raw": "http://localhost:{{jiraLocalPort}}/jira/user/getOne",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "8080",
+					"port": "{{jiraLocalPort}}",
 					"path": [
 						"jira",
 						"user",
@@ -67,6 +78,131 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "actuator/info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "X-Service",
+						"value": "api_server",
+						"type": "default"
+					},
+					{
+						"key": "cache",
+						"value": "no-cache",
+						"type": "default"
+					},
+					{
+						"key": "credentials",
+						"value": "same-origin",
+						"type": "default"
+					},
+					{
+						"key": "redirect",
+						"value": "follow",
+						"type": "default"
+					},
+					{
+						"key": "referrer",
+						"value": "no-referrer",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:{{jiraLocalPort}}/jira/actuator/info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{jiraLocalPort}}",
+					"path": [
+						"jira",
+						"actuator",
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actuator/health",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:{{jiraLocalPort}}/jira/actuator/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "{{jiraLocalPort}}",
+					"path": [
+						"jira",
+						"actuator",
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "jiraLocalPort",
+			"value": "8080",
+			"type": "default"
+		},
+		{
+			"key": "jiraRemotePort",
+			"value": "80",
+			"type": "default"
 		}
 	]
 }
